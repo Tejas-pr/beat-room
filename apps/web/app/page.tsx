@@ -1,6 +1,8 @@
-import { Button } from "@workspace/ui/components/button"
+import { Button } from "@workspace/ui/components/button";
 
-export default function Page() {
+export default function TestPage() {
+// console.log(">>>", process.env.NODE_ENV)
+
   return (
     <div className="flex items-center justify-center min-h-svh">
       <div className="flex flex-col items-center justify-center gap-4">
@@ -8,5 +10,5 @@ export default function Page() {
         <Button size="sm">Button</Button>
       </div>
     </div>
-  )
+  );
 }
