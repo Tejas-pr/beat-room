@@ -4,30 +4,34 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
-    "db:migrate:deploy": "turbo db:migrate:deploy",
-    "db:migrate:dev": "turbo db:migrate:dev",
-    "db:push": "turbo db:push",
-    "db:seed": "turbo db:seed",
     "dev": "dotenv -- turbo dev",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "generate": "turbo run generate",
     "lint": "turbo lint",
-    "studio": "turbo run studio"
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "db:generate": "dotenv -e .env -- turbo run db:generate --filter=@workspace/db",
+    "db:migrate:dev": "dotenv -e .env -- turbo run db:migrate --filter=@workspace/db",
+    "db:migrate:deploy": "dotenv -e .env -- turbo run db:deploy --filter=@workspace/db",
+    "db:push": "dotenv -e .env -- turbo run db:push --filter=@workspace/db",
+    "db:seed": "dotenv -e .env -- turbo run db:seed --filter=@workspace/db",
+    "studio": "dotenv -e .env -- turbo run studio --filter=@workspace/db"
   },
   "devDependencies": {
     "@types/node": "^20.19.9",
     "@workspace/eslint-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
+    "dotenv-cli": "^10.0.0",
     "prettier": "^3.6.2",
     "tsx": "^4.20.5",
     "turbo": "^2.5.5",
     "typescript": "5.7.3",
-    "dotenv-cli": "^10.0.0"
+    "prisma": "^5.22.0",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0"
   },
   "packageManager": "pnpm@10.4.1",
   "engines": {
     "node": ">=20"
-  },
-  "dependencies": {
   }
 }
