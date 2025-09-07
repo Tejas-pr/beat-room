@@ -11,7 +11,7 @@ console.log("process.env.DATABASE_URL", process.env.DATABASE_URL);
 console.log("process.env.PORT", process.env.BE_PORT);
 
 app.get("/", async (req, res) => {
-  const data = await prisma.post.findMany();
+  const data = await prisma.user.findMany();
   res.status(200).json(data);
 });
 

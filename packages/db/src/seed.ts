@@ -26,12 +26,12 @@ const DEFAULT_POSTS = [
         }),
       ),
     );
-    console.log("seed completed.✅")
+    console.log("seed completed.✅");
   } catch (error) {
     console.error(error);
     process.exit(1);
   } finally {
     await prisma.$disconnect();
-    console.log("db disconnected...")
+    console.log("db disconnected...");
   }
 })();
