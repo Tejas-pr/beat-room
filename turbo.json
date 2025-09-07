@@ -6,7 +6,7 @@
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": [".next/**", "!.next/cache/**"],
-      "env": ["DATABASE_URL"]
+      "env": ["DATABASE_URL", "PORT", "BE_PORT"]
     },
     "lint": {
       "dependsOn": ["^lint"]
@@ -20,13 +20,23 @@
       "env": [
         "NODE_ENV",
         "PORT",
-        "BACKEND_PORT",
+        "BE_PORT",
         "BETTER_AUTH_SECRET",
         "BETTER_AUTH_URL",
-        "GITHUB_CLIENT_ID", 
-        "GITHUB_CLIENT_SECRET", 
+        "GITHUB_CLIENT_ID",
+        "GITHUB_CLIENT_SECRET",
         "DATABASE_URL"
       ]
+    },
+    "db:generate": {
+      "cache": false
+    },
+    "db:migrate": {
+      "cache": false,
+      "persistent": true
+    },
+    "db:deploy": {
+      "cache": false
     }
   }
 }
